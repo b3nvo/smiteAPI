@@ -29,8 +29,8 @@ module.exports = class API {
     test(send) {
         var url = c.constants.PC + "/pingJson";
         this.makeRequest(url, (err, data) => {
-            if (err) console.log('error: ', err);
-            console.log(data);
+            if (err) send(err, null);
+            send(null, data);
         })
     }
 
@@ -45,8 +45,26 @@ module.exports = class API {
         });
     }
 
+    getPatchInfo(send) {
+        var method = "getpatchinfo";
+        var url = this.urlBuilder(method);
+        this.makeRequest(url, (err, resp) => {
+            if (err) send(err, null);
+            send(null, resp);
+        })
+    }
+
     getMatchHistory(id, send) {
         var method = "getmatchhistory";
+        var url = this.urlBuilder(method, id);
+        this.makeRequest(url, (err, resp) => {
+            if (err) send(err, null);
+            send(null, resp);
+        })
+    }
+
+    getMatchDetails(id, send) {
+        var method = "getmatchdetails";
         var url = this.urlBuilder(method, id);
         this.makeRequest(url, (err, resp) => {
             if (err) send(err, null);
