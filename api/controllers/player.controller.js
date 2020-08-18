@@ -1,6 +1,6 @@
 const Api = require("../api");
 const c = require('../global');
-const api = new Api(c.config.devId, c.config.authKey);
+const api = new Api();
 
 exports.getPlayerId = (req, res, next) => {
     var username = req.params.username;

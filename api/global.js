@@ -1,6 +1,4 @@
 exports.config = {
-    devId: "2633",
-    authKey: "87391F4F039A48F7AEF098426EACE9E9",
     sessionId: ""
 };
 

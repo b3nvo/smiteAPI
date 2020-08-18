@@ -2,11 +2,12 @@ const moment = require('moment');
 const axios = require('axios');
 const md5 = require('md5');
 var c = require('./global');
+require('dotenv').config();
 
 module.exports = class API { 
     constructor(devId, authKey) {
-        !devId ? console.log('Error: no devId specified') : (this.devId = devId);
-        !authKey ? console.log('Error: no authKey specified') : (this.authKey = authKey);
+        this.devId = process.env.devId;
+        this.authKey = process.env.authKey;
         this.format = "Json";
         this.lang = "1";
     }
