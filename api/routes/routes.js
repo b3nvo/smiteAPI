@@ -6,7 +6,11 @@ const Api = require('../api');
 const global = require('../global');
 const api = new Api();
 
-router.get('/test', (req, res) => api.test());
+router.get('/test', (req, res) => api.test((err, resp) => {
+    if (err) res.status(400).json({error: err.toString()});
+    res.status(200).json(resp);
+}));
+
 router.get(
      '/patch',
      (req, res) => {
