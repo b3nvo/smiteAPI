@@ -18,3 +18,10 @@ exports.getHistory = (req, res) => {
         res.status(200).json(resp);
     })
 }
+
+exports.getMatchDetails = (req, res) => {
+    api.getMatchDetails(req.params.matchId, (err, resp) => {
+        if (err) res.status(400).json({ error: err.toString() });
+        res.status(200).json(resp);
+    })
+}
