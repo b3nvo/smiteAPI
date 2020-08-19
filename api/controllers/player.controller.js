@@ -11,9 +11,9 @@ exports.getPlayerId = (req, res, next) => {
             api.connect((err, resp) => {
                 if (err) console.log('Error: no connection to api');
                 config.sessionId = resp.session_id;
+                res.status(400).json({ error: 'Please try again later'});
             })      
         } else {
-            res.status(200).json(resp);
             req.player_id = resp[0].player_id;
             next();
         }
