@@ -3,7 +3,6 @@ const godRoutes = require('./god.routes');
 const itemRoutes = require('./item.routes');
 const playerRoutes = require('./player.routes');
 const Api = require('../api');
-const global = require('../global');
 const api = new Api();
 
 router.get('/test', (req, res) => api.test((err, resp) => {

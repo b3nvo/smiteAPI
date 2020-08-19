@@ -15,7 +15,7 @@ app.use(cors());
 app.listen(port, () => { console.log('server is running on port ' + port)});
 
 // enable session id
-const access = new api(config.devId, config.authKey);
+const access = new api();
 access.connect((err, resp) => {
     if (err) console.log('Error: no connection to api');
     config.sessionId = resp.session_id;
