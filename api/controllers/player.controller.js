@@ -10,7 +10,7 @@ exports.getPlayerId = (req, res, next) => {
         if (resp[0].ret_msg === 'Invalid session id.' || resp.ret_msg === 'Invalid session id.') {
             api.connect((err, resp) => {
                 if (err) console.log('Error: no connection to api');
-                config.sessionId = resp.session_id;
+                c.sessionId = resp.session_id;
                 res.status(400).json({ error: 'Please try again later'});
             })      
         } else {
@@ -26,7 +26,7 @@ exports.getHistory = (req, res) => {
         if (resp[0].ret_msg === 'Invalid session id.' || resp.ret_msg === 'Invalid session id.') {
             api.connect((err, resp) => {
                 if (err) console.log('Error: no connection to api');
-                config.sessionId = resp.session_id;
+                c.sessionId = resp.session_id;
             })      
         } else {
             res.status(200).json(resp);
@@ -40,7 +40,7 @@ exports.getMatchDetails = (req, res) => {
         if (resp[0].ret_msg === 'Invalid session id.' || resp.ret_msg === 'Invalid session id.') {
             api.connect((err, resp) => {
                 if (err) console.log('Error: no connection to api');
-                config.sessionId = resp.session_id;
+                c.sessionId = resp.session_id;
             })      
         } else {
             res.status(200).json(resp);
