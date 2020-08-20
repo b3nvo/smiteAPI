@@ -64,6 +64,18 @@ module.exports = class API {
         })
     }
 
+    getItemsByGodId(id, send) {
+        console.log('api called', id);
+        var method = "getgodrecommendeditems";
+
+        var url = this.urlBuilder(method, id, 1);
+        this.makeRequest(url, (err, resp) => {
+            console.log(err);
+            if (err) send(err, null);
+            send(null, resp);
+        });
+    }
+
     getMatchDetails(id, send) {
         var method = "getmatchdetails";
         var url = this.urlBuilder(method, id);

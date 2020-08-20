@@ -11,7 +11,11 @@ exports.getGods = (req, res) => {
                 c.sessionId = resp.session_id;
             })      
         } else {
-            res.status(200).json(resp);
+            let result = [];
+            for(let i = 0; i < resp.length; i++) {
+                result.push({Name: resp[i].Name, id: resp[i].id, godIcon_URL: resp[i].godIcon_URL});
+            }
+            res.status(200).json(result);
         }
         
     })
